@@ -1,6 +1,12 @@
-var builder = WebApplication.CreateBuilder(args); //nunca apagar esta linhas, pois ela controe a aplicacao
-var app = builder.Build();//nunca apagar esta linhas, pois ela controe a aplicacao
+using API_ECommerce.Context;
 
-app.MapGet("/", () => "Hello World!"); 
+var builder = WebApplication.CreateBuilder(args);
 
-app.Run(); //Nunca apagar esta linha, pois ela que exexuta a aplicacao
+builder.Services.AddControllers();
+builder.Services.AddTransient<EcommerceContext, EcommerceContext>();
+
+var app = builder.Build();
+
+app.MapControllers();
+
+app.Run();

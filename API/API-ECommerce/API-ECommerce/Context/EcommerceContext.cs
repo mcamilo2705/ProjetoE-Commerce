@@ -1,4 +1,6 @@
-﻿using System;
+﻿//O context e responsavel por realizar a conexao do fonte com o banco
+
+using System;
 using System.Collections.Generic;
 using API_ECommerce.Models;
 using Microsoft.EntityFrameworkCore;
