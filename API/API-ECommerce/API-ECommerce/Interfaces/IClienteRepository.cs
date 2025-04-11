@@ -7,11 +7,8 @@ namespace API_ECommerce.Interfaces
         List<Cliente> ListarTodos();
         Cliente BuscarPorEmailSenha(string email, string senha);
         Cliente BuscarPorId(int id);
-
         void Cadastrar(Cliente cliente);
-
         void Atualizar(int id, Cliente cliente);
-
         void Deletar(int id);
     }
 }
