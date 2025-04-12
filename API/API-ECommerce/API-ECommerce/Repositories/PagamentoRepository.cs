@@ -11,7 +11,7 @@ namespace API_ECommerce.Repositories
     {
         //Injetar o contexto
         private readonly EcommerceContext _context;
-        public PagamentoRepository(EcommerceContext context)
+        public PagamentoRepository(EcommerceContext context) //--> O metodo construtor e um metodo que tem o mesmo nome da classe, no construtor define o que a classe precisa ter
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Cadastrar(Pagamento pagamento)
         {
-            throw new NotImplementedException();
+            _context.Pagamentos.Add(pagamento);// o context acessa a tabela cliente para poder adicionar/cadastrar
         }
         //Implementar a interface( os metodos)
         public void Deletar(int id)
@@ -38,7 +38,7 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public List<Pagamento> ListarTodos()
         {
-            throw new NotImplementedException();
+            return _context.Pagamentos.ToList(); //-> atraves do context e acessada a tabela de pagamentos para listar
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,19 @@ namespace API_ECommerce.Controllers
         public IActionResult ListarProdutos()
         {
             return Ok(_produtoRepository.ListarTodos());
+        }
+
+        //Cadastrar produto
+        [HttpPost]
+        public IActionResult CadastrarProduto(Produto prod)
+        {
+            //1-Colocar o produto no banco de dados, chamar a variavel do repository, acessar o metodos e passar o prod
+            _produtoRepository.Cadastrar(prod);
+            //2-Salvar a informacao afirmando para o entity framework confirmar a operacao
+            _context.SaveChanges();
+            //3-Retonar o resultado
+            //201- Created
+            return Created();
         }
 
     }

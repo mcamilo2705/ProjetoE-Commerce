@@ -12,7 +12,7 @@ namespace API_ECommerce.Repositories
         //readonly serve apenas para leitura no contexto
         private readonly EcommerceContext _context;
         //ctor significa que esta montando um metodo constutor com o mesmo nome da classe, ou seja, quando criar um objeto, obrigatoriamente 
-        public ProdutoRepository(EcommerceContext context)
+        public ProdutoRepository(EcommerceContext context)//--> O metodo construtor e um metodo que tem o mesmo nome da classe, no construtor define o que a classe precisa ter
         {
             _context = context;
         }
