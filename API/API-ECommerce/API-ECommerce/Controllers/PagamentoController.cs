@@ -11,13 +11,14 @@ namespace API_ECommerce.Controllers
     [ApiController]
     public class PagamentoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
+        //private readonly EcommerceContext _context;
         private IPagamentoRepository _pagamentoRepository;
 
-        public PagamentoController(EcommerceContext context)
+        //public PagamentoController(EcommerceContext context)
+        public PagamentoController(PagamentoRepository pagamentoRepository) //INJECAO DE DEPENDENCIA... Ao inves de eu instaciar a classe eu aviso que dependo dela e a resposabilidade de criar vem para a classe que chama(C#)
         {
-            _context = context;
-            _pagamentoRepository = new PagamentoRepository(_context);
+            //_context = context;
+            _pagamentoRepository = pagamentoRepository;
         }
 
         //Primeiro passo, definir o verbo, get, post, put

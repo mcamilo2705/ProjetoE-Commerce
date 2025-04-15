@@ -29,6 +29,7 @@ namespace API_ECommerce.Repositories
         public void Cadastrar(Pagamento pagamento)
         {
             _context.Pagamentos.Add(pagamento);// o context acessa a tabela cliente para poder adicionar/cadastrar
+            _context.SaveChanges();
         }
         //Implementar a interface( os metodos)
         public void Deletar(int id)
