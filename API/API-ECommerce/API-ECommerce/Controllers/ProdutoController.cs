@@ -42,5 +42,70 @@ namespace API_ECommerce.Controllers
             return Created();
         }
 
+        //Buscar produto por id, verbo HttpGet
+        // /api/produtos -->Lista todos os produtos
+        // /api/produto/2 --> Buscar por id
+        [HttpGet("{id}")]
+        //Criar o metodo de listar por id
+        public IActionResult ListarPorId(int id) 
+        { 
+            //Declarando uma variavel do tipo Produto para receber o produto do repository
+            Produto produto = _produtoRepository.BuscarPorId(id);
+
+            if (produto == null)
+            {
+                //Se o produto for nullo, apresentar o retorno 404-Nao Encontrado
+                return NotFound();
+
+            }
+            else
+            {
+                //Se o produto foi encontrado, apresentar o retorno 200-Sucesso e o produto
+                return Ok(produto);
+            }
+        }
+
+        //Verbo atualizar
+
+        [HttpPut("{id}")]
+        //neste metodos sera preciso receber o id do produto e compara com o prod para poder atualizar
+        public IActionResult Editar(int id, Produto prod)
+        {
+            try //Se encontrar o produto
+            {
+                //_produtoRepository (acessar o context/banco de dados)
+                //Editar (id) editar o produto pelo id
+                _produtoRepository.Atualizar(id, prod);
+                // Retornar 200
+                return Ok(prod);
+            }
+            //Caso dar erro ou nao encontrao o produto
+            catch (Exception ex)
+            {
+                return NotFound("Produto nao encontrado");
+            }
+        }
+
+
+        //Deletar
+
+        [HttpDelete("{id}")]
+
+        public IActionResult Deletar(int id)
+        {
+            try //Se encontrar o produto
+            {
+                //_produtoRepository (acessar o context/banco de dados)
+                //Deletar (id) deletar o produto pelo id
+                _produtoRepository.Deletar(id);
+                // Retornar 204
+                return NoContent();
+            }
+            //Caso dar erro ou nao encontrao o produto
+            catch (Exception ex)
+            {
+                return NotFound("Produto nao encontrado");
+            }
+        }
     }
 }
