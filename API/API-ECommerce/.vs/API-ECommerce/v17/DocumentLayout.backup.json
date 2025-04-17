@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProdutoController.cs",
               "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ProdutoController.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Controllers\\ProdutoController.cs",
               "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ProdutoController.cs",
               "RelativeToolTip": "API-ECommerce\\Controllers\\ProdutoController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAvwEMAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAowG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T22:59:31.036Z",
+              "WhenOpened": "2025-04-17T00:41:34.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "API-ECommerce\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T00:41:08.617Z",
               "EditorCaption": ""
             }
           ]

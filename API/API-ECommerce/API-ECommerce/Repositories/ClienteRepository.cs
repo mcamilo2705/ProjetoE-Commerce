@@ -18,7 +18,21 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Atualizar(int id, Cliente cliente)
         {
-            throw new NotImplementedException();
+            Cliente cli = _context.Clientes.Find(id);
+
+            if (cli == null)
+            {
+                throw new Exception();
+            }
+
+            cliente.DataCadastro = cliente.DataCadastro; //DateTime.Now();
+            cliente.NomeCompleto = cli.NomeCompleto;
+            cliente.Email = cli.Email;
+            cliente.Telefone = cli.Telefone;
+            cliente.Endereco = cli.Endereco; 
+            
+            _context.SaveChanges();
+
         }
         //Implementar a interface( os metodos)
         public Cliente BuscarPorEmailSenha(string email, string senha)
@@ -28,7 +42,7 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public Cliente BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
         //Implementar a interface( os metodos)
         public void Cadastrar(Cliente cliente)
@@ -38,7 +52,16 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Cliente cliente = _context.Clientes.Find(id);
+
+            if (cliente == null) 
+            {
+                throw new Exception();
+            }
+
+            _context.Clientes.Remove(cliente);
+            _context.SaveChanges();
+
         }
         //Implementar a interface( os metodos)
         public List<Cliente> ListarTodos()
