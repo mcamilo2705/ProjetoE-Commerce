@@ -16,54 +16,59 @@ CREATE TABLE Cliente (
 --Primary Key --> Coluna que identifica os clientes
 --Identity --> Gerar o id automaticamente
 IdCliente INT PRIMARY KEY IDENTITY,
-NomeCompleto VARCHAR (150),
-Email VARCHAR (100),
+NomeCompleto VARCHAR (150) NOT NULL, --NOT NULL e uma forma que torna o preenchimento obrigatorio 
+Email VARCHAR (100) NOT NULL UNIQUE, --Unique e uma restricao para informar que nenhum email pode se repetir no banco
 Telefone VARCHAR(20),
 Endereco VARCHAR(255),
+Senha VARCHAR(255) NOT NULL,
 DataCadastro DATE
 );
 
 CREATE TABLE Pedido(
 IdPedido INT PRIMARY KEY IDENTITY,
-DataPedido DATE,
-Status VARCHAR (20),
+DataPedido DATE NOT NULL,
+Status VARCHAR (20) NOT NULL,
 ValorTotal DECIMAL (18,6),
 --FOREIGN KEY --> Coluna que identifica a chave estrangeira de cliente
 --REFERENCES --> Para referenciar a tabela Cliente
-IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente)
+IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente) NOT NULL
 );
 
 CREATE TABLE Pagamento(
 IdPagamento INT PRIMARY KEY IDENTITY,
-IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido),
-FormaPagamento VARCHAR (30),
-Status VARCHAR (20),
-Data DATETIME
+IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido) NOT NULL,
+FormaPagamento VARCHAR (30) NOT NULL,
+Status VARCHAR (20) NOT NULL,
+Data DATETIME NOT NULL
 );
 
 CREATE TABLE Produto(
 IdProduto INT PRIMARY KEY IDENTITY,
-Nome VARCHAR (150),
+Nome VARCHAR (150) NOT NULL,
 Descricao VARCHAR (255),
-Preco DECIMAL (18,6),
-EstoqueDisponivel INT,
-Categoria VARCHAR (100),
+Preco DECIMAL (18,6) NOT NULL,
+EstoqueDisponivel INT NOT NULL,
+Categoria VARCHAR (100) NOT NULL,
 Imagem VARCHAR (255)
 );
 
 CREATE TABLE ItemPedido(
 IdItemPedido INT PRIMARY KEY IDENTITY,
-Quantidade INT,
-IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido),
-IdProduto INT FOREIGN KEY REFERENCES Produto(IdProduto)
+Quantidade INT NOT NULL,
+IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido) NOT NULL,
+IdProduto INT FOREIGN KEY REFERENCES Produto(IdProduto) NOT NULL
 );
 
+/*
 DROP TABLE ItemPedido;
 DROP TABLE Pagamento;
 DROP TABLE Produto;
 DROP TABLE Pedido;
 DROP TABLE Cliente;
+*/
 
+--Exemplo de alterar a tabela e colunas sem a necessidade de deletar a tabela
+--ALTER TABLE Cliente ALTER COLUMN NomeCompleto VARCHAR (150) NOT NULL
 
 -- DML --> Criar, alterar ou apagar dados
 -- DML --> Data Manipulation Language

@@ -7,29 +7,37 @@ values
 ('Mouse', 'Mouse logitech recarregavel', 99.90, 50, 'Informatica', ''),
 ('Teclado', 'Mouse logitech recarregavel bluetooth', 209.55, 100, 'Informatica', '')
 
-insert into Cliente (NomeCompleto, Email, Telefone,Endereco,DataCadastro)
+insert into Cliente (NomeCompleto, Email, Telefone,Endereco, Senha, DataCadastro)
 values 
-('Marcos Silva', 'mcamilo25@gmail.com', '011991958877', 'Rua niteroi, 500 - Sao Paulo/SP', '01/04/2023'),
-('Beatriz Silva', 'bia@gmail.com', '011987948877', 'Rua Para, 124 - Sao Paulo/SP', '01/04/2025')
+('Marcos Silva', 'mcamilo25@gmail.com', '011991958877', 'Rua niteroi, 500 - Sao Paulo/SP',123456, '01/04/2023'),
+('Beatriz Silva', 'bia@gmail.com', '011987948877', 'Rua Para, 124 - Sao Paulo/SP',654321, '01/04/2025')
+
+select * from Cliente
 
 insert into Pedido (DataPedido, Status, ValorTotal,IdCliente)
 values 
-('05/04/2023', 'Pagamento',99.90 , 1),
-('01/05/2025', 'Pagamento',309.45 , 1),
-('07/04/2025', 'Pendente', 209.55 , 2)
+('05/04/2023', 'Pagamento',99.90 , 2),
+('01/05/2025', 'Pagamento',309.45 , 2),
+('07/04/2025', 'Pendente', 209.55 , 3)
+
+Select * from Pedido
+
+select * from Pagamento
+
+select * from Produto
 
 insert into Pagamento (IdPedido, FormaPagamento, Status, Data)
 values
-(1, 'Cartao credito', 'Aprovado', '05/04/2023'),
-(2, 'PIX', 'Aprovado', '01/05/2025'),
-(3, 'Boleto', ' Pendente', '07/04/2025')
+(2, 'Cartao credito', 'Aprovado', '05/04/2023'),
+(3, 'PIX', 'Aprovado', '01/05/2025'),
+(4, 'Boleto', ' Pendente', '07/04/2025')
 
 insert into ItemPedido (Quantidade, IdPedido, IdProduto)
 values
-(1, 1, 1),
 (1, 2, 1),
-(1, 2, 2),
-(1, 3, 2 )
+(1, 3, 1),
+(1, 3, 2),
+(1, 4, 2 )
 
 select * from Pagamento
 

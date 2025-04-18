@@ -18,12 +18,24 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Atualizar(int id, Pagamento pagamento)
         {
-            throw new NotImplementedException();
+            Pagamento pag = _context.Pagamentos.Find(id);
+
+            if (pagamento == null)
+            {
+                throw new Exception();
+            }
+
+            pag.Status = pagamento.Status;
+            pag.Data = pagamento.Data;
+            pag.FormaPagamento = pagamento.FormaPagamento;
+
+            //Efetivar a atualizacao
+            _context.SaveChanges();
         }
         //Implementar a interface( os metodos)
         public Pagamento BuscarPorid(int id)
         {
-            throw new NotImplementedException();
+            return _context.Pagamentos.FirstOrDefault(pag => pag.IdPagamento == id);
         }
         //Implementar a interface( os metodos)
         public void Cadastrar(Pagamento pagamento)
@@ -34,7 +46,15 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Pagamento pag = _context.Pagamentos.Find(id);
+
+            if (pag == null) 
+            {
+                throw new Exception();
+            }
+
+            _context.Pagamentos.Remove(pag);
+            _context.SaveChanges();
         }
         //Implementar a interface( os metodos)
         public List<Pagamento> ListarTodos()

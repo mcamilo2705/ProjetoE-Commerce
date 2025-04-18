@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "b844b18d-fa31-40f5-8b0f-154110a75fc0",
+		"name": "Senai - Projeto ECommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44167180",
+		"_collection_link": "https://marcos-2136006.postman.co/workspace/Marcos's-Workspace~6b2f3d35-5709-4abb-8bd3-40aee4113b4d/collection/44167180-b844b18d-fa31-40f5-8b0f-154110a75fc0?action=share&source=collection_link&creator=44167180"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Consultar Todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Produto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/produto/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nome\": \"Iphone\",\r\n        \"descricao\": \"Iphone 15\",\r\n        \"preco\": 9580.900000,\r\n        \"estoqueDisponivel\": 9,\r\n        \"categoria\": \"Eletronico\",\r\n        \"imagem\": \"\",\r\n        \"itemPedidos\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nome\": \"HD\",\r\n        \"descricao\": \"HD sata 1TB\",\r\n        \"preco\": 299.900000,\r\n        \"estoqueDisponivel\": 22,\r\n        \"categoria\": \"Eletronico\",\r\n        \"imagem\": \"\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/produto/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"produto",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/produto/8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"produto",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Consultar Todos os Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Cliente por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/cliente/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeCompleto\": \"Joao Costa\",\r\n    \"email\": \"jc@gmail.com\",\r\n    \"telefone\": \"011987944577\",\r\n    \"endereco\": \"Rua jose, 303 - Sao Paulo/SP\",\r\n    \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeCompleto\": \"Joao Costa Teste\",\r\n    \"email\": \"jc@gmail.com.teste\",\r\n    \"telefone\": \"01198794457700\",\r\n    \"endereco\": \"Rua jose, 303 - Sao Paulo/SP teste\",\r\n    \"dataCadastro\": \"2025-04-18\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/cliente/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/cliente/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "Consultar Todos os Pagamentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/pagamento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Pagameto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/pagamento/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pagamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"idPedido\": 4,\r\n    \"formaPagamento\": \"Cartao credito teste put\",\r\n    \"status\": \"Aprovado teste put\",\r\n    \"data\": \"2023-04-05T00:00:00\",\r\n    \"idPedidoNavigation\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/pagamento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Pagamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n  \r\n        \"formaPagamento\": \"Cartao credito teste\",\r\n        \"status\": \"Aprovado teste\",\r\n        \"data\": \"2023-04-05T00:00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/pagamento/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pagamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pagamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/pagamento/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pagamento",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

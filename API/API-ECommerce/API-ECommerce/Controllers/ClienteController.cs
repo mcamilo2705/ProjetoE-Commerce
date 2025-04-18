@@ -48,6 +48,26 @@ namespace API_ECommerce.Controllers
             }
         }
 
+        [HttpGet("/Busca/{nome}")]
+        public IActionResult ListarPorNome(string nome)
+        {
+            Cliente cli = _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome);
+            if (cli == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(cli);
+            }
+        }
+
+        [HttpGet("/Ordenado")]
+        public IActionResult ListarTodosOrdenados()
+        {
+            return Ok(_clienteRepository.ListarTodos());
+        }
+
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, Cliente cli)
         {

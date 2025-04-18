@@ -25,11 +25,11 @@ namespace API_ECommerce.Repositories
                 throw new Exception();
             }
 
-            cliente.DataCadastro = cliente.DataCadastro; //DateTime.Now();
-            cliente.NomeCompleto = cli.NomeCompleto;
-            cliente.Email = cli.Email;
-            cliente.Telefone = cli.Telefone;
-            cliente.Endereco = cli.Endereco; 
+            cli.DataCadastro = cliente.DataCadastro; //DateTime.Now();
+            cli.NomeCompleto = cliente.NomeCompleto;
+            cli.Email = cliente.Email;
+            cli.Telefone = cliente.Telefone;
+            cli.Endereco = cliente.Endereco; 
             
             _context.SaveChanges();
 
@@ -44,10 +44,16 @@ namespace API_ECommerce.Repositories
         {
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
+
+        public Cliente BuscarPorNome(string nome)
+        {
+            return _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome);
+        }
         //Implementar a interface( os metodos)
         public void Cadastrar(Cliente cliente)
         {
             _context.Clientes.Add(cliente); // o context acessa a tabela cliente para poder adicionar/cadastrar
+            _context.SaveChanges();
         }
         //Implementar a interface( os metodos)
         public void Deletar(int id)
