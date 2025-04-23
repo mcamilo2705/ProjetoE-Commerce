@@ -46,7 +46,7 @@
         }
       }
     },
-    "/api/Cliente/{id}/{nome}": {
+    "/api/Cliente/{id}": {
       "get": {
         "tags": [
           "Cliente"
@@ -60,14 +60,6 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "nome",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -75,31 +67,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/Busca/{nome}": {
-      "get": {
-        "tags": [
-          "Cliente"
-        ],
-        "parameters": [
-          {
-            "name": "nome",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Cliente/{id}": {
+      },
       "put": {
         "tags": [
           "Cliente"
@@ -152,6 +120,70 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Busca/{nome}": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "nome",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Ordenado": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cliente/{email}/{senha}": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "senha",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -545,13 +577,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ItemPedido"
-            },
-            "nullable": true
-          },
-          "pagamentos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Pagamento"
             },
             "nullable": true
           }

@@ -1,6 +1,7 @@
 ﻿using API_ECommerce.Interfaces;
 using API_ECommerce.Context;
 using API_ECommerce.Models;
+using System.Linq;
 
 namespace API_ECommerce.Repositories
 {
@@ -16,28 +17,47 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
         //Implementar a interface( os metodos)
-        public void Atualizar(int id, Cliente cliente)
+        public void Atualizar(int id, Cliente clienteNovo)
         {
-            Cliente cli = _context.Clientes.Find(id);
 
-            if (cli == null)
+            //Cliente cli = _context.Clientes.Find(id); //o tipo Cliente pode ser substituido por var
+            var clienteAntigo = _context.Clientes.Find(id); //o tipo Cliente pode ser substituido por var
+
+            if (clienteAntigo == null)
             {
-                throw new Exception();
+                throw new ArgumentNullException("Cliente nao encontrado");
             }
 
-            cli.DataCadastro = cliente.DataCadastro; //DateTime.Now();
-            cli.NomeCompleto = cliente.NomeCompleto;
-            cli.Email = cliente.Email;
-            cli.Telefone = cliente.Telefone;
-            cli.Endereco = cliente.Endereco; 
+            clienteAntigo.DataCadastro = clienteNovo.DataCadastro; //DateTime.Now();
+            clienteAntigo.NomeCompleto = clienteNovo.NomeCompleto;
+            clienteAntigo.Email = clienteNovo.Email;
+            clienteAntigo.Telefone = clienteNovo.Telefone;
+            clienteAntigo.Endereco = clienteNovo.Endereco; 
+            clienteAntigo.Senha = clienteNovo.Senha;
             
             _context.SaveChanges();
 
         }
         //Implementar a interface( os metodos)
-        public Cliente BuscarPorEmailSenha(string email, string senha)
+        /// <summary>
+        /// Acessa o banco de dados e encontra o cliente com emai e senha fornecidos
+        /// </summary>
+        /// <param name="email"></param> //dentro do param serve para informar o significado do parametro
+        /// <param name="senha"></param> //dentro do param serve para informar o significado do parametro
+        /// <returns>Retorna um cliente ou nulo</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Cliente? BuscarPorEmailSenha(string email, string senha) // ao colocar interrogacao indica que pode retornar nulo.
         {
-            throw new NotImplementedException();
+            //Encontrar o cliente que possue o email e senha fornecidos
+            var clienteEncontrado = _context.Clientes.FirstOrDefault(cli => cli.Email == email && cli.Senha == senha);
+            
+            if (clienteEncontrado == null)
+            {
+                throw new ArgumentNullException("Cliente nao encontrado");
+            }
+            
+            return clienteEncontrado;
+            
         }
         //Implementar a interface( os metodos)
         public Cliente BuscarPorId(int id)
@@ -47,8 +67,10 @@ namespace API_ECommerce.Repositories
 
         public Cliente BuscarPorNome(string nome)
         {
-            return _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome);
+            return _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome); //o firstordefault pesquisa por qualquer campo da tabela
         }
+
+
         //Implementar a interface( os metodos)
         public void Cadastrar(Cliente cliente)
         {
@@ -58,11 +80,11 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Deletar(int id)
         {
-            Cliente cliente = _context.Clientes.Find(id);
+            Cliente cliente = _context.Clientes.Find(id); //O find pesquisa somente pela chave primaria
 
             if (cliente == null) 
             {
-                throw new Exception();
+                throw new ArgumentNullException("Cliente nao encontrado"); // caso eu nao encontre o cliente lanco um erro
             }
 
             _context.Clientes.Remove(cliente);
@@ -74,5 +96,12 @@ namespace API_ECommerce.Repositories
         {
             return _context.Clientes.ToList(); // o context acessa a tabela Clietes e lista
         }
+
+        public List<Cliente> ListarTodosOrdenados()
+        {
+            return _context.Clientes.OrderBy(cli => cli.NomeCompleto).ToList();
+        }
+
+      
     }
 }

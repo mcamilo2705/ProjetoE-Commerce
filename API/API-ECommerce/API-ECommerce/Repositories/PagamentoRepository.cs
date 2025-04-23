@@ -1,6 +1,7 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_ECommerce.Repositories
 {
@@ -59,7 +60,10 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public List<Pagamento> ListarTodos()
         {
-            return _context.Pagamentos.ToList(); //-> atraves do context e acessada a tabela de pagamentos para listar
+            return _context.Pagamentos
+                .Include(pgto => pgto.IdPedidoNavigation) //include para trazer o pedido vinculado ao pagamento no json (Swagger)
+                // Caso tenha necessidade de fazer outra navegacao, basta incluir um novo .include()
+                .ToList(); //-> atraves do context e acessada a tabela de pagamentos para listar
         }
     }
 }

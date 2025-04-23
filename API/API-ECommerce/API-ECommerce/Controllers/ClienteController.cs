@@ -65,7 +65,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("/Ordenado")]
         public IActionResult ListarTodosOrdenados()
         {
-            return Ok(_clienteRepository.ListarTodos());
+            return Ok(_clienteRepository.ListarTodosOrdenados());
         }
 
         [HttpPut("{id}")]
@@ -105,6 +105,19 @@ namespace API_ECommerce.Controllers
         }
 
 
-
+        // exemplo: /api/cliente/marcos@gmail.com/12345
+        [HttpGet("{email}/{senha}")]
+        public IActionResult Login(string email, string senha)
+        {;
+            var cli = _clienteRepository.BuscarPorEmailSenha(email, senha);
+            if (cli == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(cli);
+            }
+        }
     }
 }
