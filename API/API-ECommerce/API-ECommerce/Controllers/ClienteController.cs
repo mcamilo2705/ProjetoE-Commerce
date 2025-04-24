@@ -5,6 +5,7 @@ using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using API_ECommerce.Models;
+using API_ECommerce.DTO.Cliente;
 
 namespace API_ECommerce.Controllers
 {
@@ -28,7 +29,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarCliente(Cliente cli) 
+        public IActionResult CadastrarCliente(CadastrarClienteDTO cli) 
         {
             _clienteRepository.Cadastrar(cli);
             return Created();
@@ -51,7 +52,8 @@ namespace API_ECommerce.Controllers
         [HttpGet("/Busca/{nome}")]
         public IActionResult ListarPorNome(string nome)
         {
-            Cliente cli = _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome);
+            //Cliente cli = _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome);
+            var cli = _clienteRepository.BuscarClientePorNome(nome);
             if (cli == null)
             {
                 return NotFound();
@@ -69,7 +71,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Atualizar(int id, Cliente cli)
+        public IActionResult Atualizar(int id, CadastrarClienteDTO cli)
         {
             try //Se encontrar o produto
             {

@@ -4,6 +4,7 @@
 using API_ECommerce.Interfaces;
 using API_ECommerce.Context;
 using API_ECommerce.Models;
+using API_ECommerce.DTO.Produto;
 
 namespace API_ECommerce.Repositories
 {
@@ -17,7 +18,7 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
 
-        public void Atualizar(int id, Produto produto)
+        public void Atualizar(int id, CadastrarProdutoDTO produto)//neste cenario esta usando a classe CadastrarProdutosDTO para o cadastro do produto apenas com os campos necessarios
         {
             //Primeiro passo, encontra quem eu quero atualizar 
             //-->Produto produtoEncontrato (declarando uma variavel do tipo Produto)
@@ -54,9 +55,20 @@ namespace API_ECommerce.Repositories
             return _context.Produtos.FirstOrDefault(p => p.IdProduto == id); 
         }
 
-        public void Cadastrar(Produto produto)
+        public void Cadastrar(CadastrarProdutoDTO produto)//neste cenario esta usando a classe CadastrarProdutosDTO para o cadastro do produto apenas com os campos necessarios
         {
-            _context.Produtos.Add(produto);
+            //Com a utilizacao do DTO, sera preciso criar o objeto produto e alocar os atributos do produto nos atributos do produtoCadastro
+            Produto produtoCadastro = new Produto //Instanciar o produto
+            { 
+                
+                Nome = produto.Nome, //Nome do produtoCadastro recebe Nome do CadastrarProdutoDTO
+                Descricao = produto.Descricao,
+                Preco = produto.Preco,
+                EstoqueDisponivel = produto.EstoqueDisponivel,
+                Categoria = produto.Categoria,
+                Imagem = produto.Imagem,
+            };
+            _context.Produtos.Add(produtoCadastro);
             _context.SaveChanges();
         }
 

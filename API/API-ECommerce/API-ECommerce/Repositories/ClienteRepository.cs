@@ -2,6 +2,7 @@
 using API_ECommerce.Context;
 using API_ECommerce.Models;
 using System.Linq;
+using API_ECommerce.DTO.Cliente;
 
 namespace API_ECommerce.Repositories
 {
@@ -17,7 +18,7 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
         //Implementar a interface( os metodos)
-        public void Atualizar(int id, Cliente clienteNovo)
+        public void Atualizar(int id, CadastrarClienteDTO clienteNovo)
         {
 
             //Cliente cli = _context.Clientes.Find(id); //o tipo Cliente pode ser substituido por var
@@ -38,6 +39,25 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
 
         }
+
+        public List<Cliente> BuscarClienteNomeParcial(string nome)
+        {
+            var buscaParcial = _context.Clientes.Where(c => c.NomeCompleto == nome).ToList();
+            return buscaParcial;
+        }
+
+        public List<Cliente> BuscarClientePorNome(string nome)
+        {
+            // where - Traz todos que atendem uma condicao e sempre que for uma lista, colocar .ToList();
+            var buscaNomes = _context.Clientes.Where(c => c.NomeCompleto == nome).ToList();
+            return buscaNomes;
+        }
+
+        //public Cliente BuscarPorNome(string nome)
+        //{
+        //    return _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome); //o firstordefault pesquisa por qualquer campo da tabela
+        //}
+
         //Implementar a interface( os metodos)
         /// <summary>
         /// Acessa o banco de dados e encontra o cliente com emai e senha fornecidos
@@ -65,16 +85,20 @@ namespace API_ECommerce.Repositories
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
 
-        public Cliente BuscarPorNome(string nome)
-        {
-            return _context.Clientes.FirstOrDefault(c => c.NomeCompleto == nome); //o firstordefault pesquisa por qualquer campo da tabela
-        }
-
-
         //Implementar a interface( os metodos)
-        public void Cadastrar(Cliente cliente)
+        public void Cadastrar(CadastrarClienteDTO cliente)
         {
-            _context.Clientes.Add(cliente); // o context acessa a tabela cliente para poder adicionar/cadastrar
+            Cliente clienteCadastro = new Cliente
+            {
+                NomeCompleto = cliente.NomeCompleto,
+                Email = cliente.Email,
+                Telefone = cliente.Telefone,
+                Endereco = cliente.Endereco,
+                Senha = cliente.Senha,
+                DataCadastro = cliente.DataCadastro,
+            };
+
+            _context.Clientes.Add(clienteCadastro); // o context acessa a tabela cliente para poder adicionar/cadastrar
             _context.SaveChanges();
         }
         //Implementar a interface( os metodos)

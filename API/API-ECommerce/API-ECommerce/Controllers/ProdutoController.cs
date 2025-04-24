@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO.Produto;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using API_ECommerce.Repositories;
@@ -31,7 +32,7 @@ namespace API_ECommerce.Controllers
 
         //Cadastrar produto
         [HttpPost]
-        public IActionResult CadastrarProduto(Produto prod)
+        public IActionResult CadastrarProduto(CadastrarProdutoDTO prod)
         {
             //1-Colocar o produto no banco de dados, chamar a variavel do repository, acessar o metodos e passar o prod
             _produtoRepository.Cadastrar(prod);
@@ -69,7 +70,7 @@ namespace API_ECommerce.Controllers
 
         [HttpPut("{id}")]
         //neste metodos sera preciso receber o id do produto e compara com o prod para poder atualizar
-        public IActionResult Editar(int id, Produto prod)
+        public IActionResult Editar(int id, CadastrarProdutoDTO prod)
         {
             try //Se encontrar o produto
             {

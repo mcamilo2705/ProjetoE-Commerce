@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "cli",
-        "Type": "API_ECommerce.Models.Cliente",
+        "Type": "API_ECommerce.DTO.Cliente.CadastrarClienteDTO",
         "IsRequired": true
       }
     ],
@@ -77,7 +77,7 @@
       },
       {
         "Name": "cli",
-        "Type": "API_ECommerce.Models.Cliente",
+        "Type": "API_ECommerce.DTO.Cliente.CadastrarClienteDTO",
         "IsRequired": true
       }
     ],
@@ -198,7 +198,7 @@
     "Parameters": [
       {
         "Name": "prod",
-        "Type": "API_ECommerce.Models.Produto",
+        "Type": "API_ECommerce.DTO.Produto.CadastrarProdutoDTO",
         "IsRequired": true
       }
     ],
@@ -235,7 +235,7 @@
       },
       {
         "Name": "prod",
-        "Type": "API_ECommerce.Models.Produto",
+        "Type": "API_ECommerce.DTO.Produto.CadastrarProdutoDTO",
         "IsRequired": true
       }
     ],
