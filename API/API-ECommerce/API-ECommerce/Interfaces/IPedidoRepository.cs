@@ -1,4 +1,5 @@
-﻿using API_ECommerce.Models;
+﻿using API_ECommerce.DTO.Pedido;
+using API_ECommerce.Models;
 
 namespace API_ECommerce.Interfaces
 {
@@ -8,7 +9,7 @@ namespace API_ECommerce.Interfaces
 
         Pedido BuscarPorId(int id);
 
-        void Cadastrar(Pedido pedido);
+        void Cadastrar(CadastrarPedidoDTO pedido); //Implementar a classe CadastrarPedidoDTO
 
         void Atualizar(int id, Pedido pedido);
 

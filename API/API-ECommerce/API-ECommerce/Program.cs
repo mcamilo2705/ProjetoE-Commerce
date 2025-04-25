@@ -14,11 +14,13 @@ builder.Services.AddSwaggerGen();
 //2- AddScoped - 0 C# cria uma instancia nova, toda vez que criar um Controller, esta funcao faz em poucos caso, pois pode dar conflito
 //3- AddSingleton - O C# cria uma classe generica para a aplicacao inteira, nao usar este
 //4- AddDbContext -> e uma versao do AddScoped, essa versao vai fazer com que os comando sql aparecam no console
-builder.Services.AddDbContext<EcommerceContext>();
+builder.Services.AddDbContext<EcommerceContext>(); //sempre que criar a interface e o repository, precisa fazer essa injecao de dependencia
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IPagamentoRepository, PagamentoRepository>();
 builder.Services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
+builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
+
 
 
 

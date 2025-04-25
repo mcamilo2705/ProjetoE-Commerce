@@ -38,7 +38,7 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public List<ItemPedido> ListarTodos()
         {
-            throw new NotImplementedException();
+            return _context.ItemPedidos.ToList(); ;
         }
     }
 }

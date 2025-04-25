@@ -194,6 +194,18 @@
         }
       }
     },
+    "/api/ItemPedido": {
+      "get": {
+        "tags": [
+          "ItemPedido"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Pagamento": {
       "get": {
         "tags": [

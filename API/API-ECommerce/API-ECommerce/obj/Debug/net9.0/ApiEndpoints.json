@@ -100,6 +100,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "ListarTodos",
+    "RelativePath": "api/ItemPedido",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_ECommerce.Controllers.PagamentoController",
     "Method": "ListarTodos",
     "RelativePath": "api/Pagamento",

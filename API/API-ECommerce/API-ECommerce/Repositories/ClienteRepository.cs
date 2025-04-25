@@ -3,6 +3,7 @@ using API_ECommerce.Context;
 using API_ECommerce.Models;
 using System.Linq;
 using API_ECommerce.DTO.Cliente;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Repositories
 {
@@ -116,9 +117,23 @@ namespace API_ECommerce.Repositories
 
         }
         //Implementar a interface( os metodos)
-        public List<Cliente> ListarTodos()
+        public List<ListarClienteViewModel> ListarTodos() //implementando a classe da ViewModel
         {
-            return _context.Clientes.ToList(); // o context acessa a tabela Clietes e lista
+            return _context.Clientes
+                //O select permite quais campos eu quero usar/pegar
+                .Select(
+                    c => new ListarClienteViewModel //Criando um lista da viewmodel
+                    { 
+                        //Caso nao for mapeado algum campo, la no swagger vai aparecer com o valor nulo
+                        IdCliente = c.IdCliente, // IdCliente e o campo da ViewModel, c.IdCliente e da classe Cliente
+                        NomeCompleto = c.NomeCompleto, // NomeCompleto e o campo da ViewModel, c.NomeCompleto e da classe Cliente
+                        Email = c.Email,// Email e o campo da ViewModel, c.Email e da classe Cliente
+                        Telefone = c.Telefone,// Telefone e o campo da ViewModel, c.Telefone e da classe Cliente
+                        Endereco = c.Endereco,// Endereco e o campo da ViewModel, c.Endereco e da classe Cliente
+                        DataCadastro = c.DataCadastro,// DataCadastro e o campo da ViewModel, c.DataCadastro e da classe Cliente
+                    }
+                )
+                .ToList(); // o context acessa a tabela Clietes e lista
         }
 
         public List<Cliente> ListarTodosOrdenados()

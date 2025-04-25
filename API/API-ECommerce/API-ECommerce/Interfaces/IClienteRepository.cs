@@ -1,11 +1,12 @@
 ﻿using System.Globalization;
 using API_ECommerce.DTO.Cliente;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 namespace API_ECommerce.Interfaces
 {
     public interface IClienteRepository
     {
-        List<Cliente> ListarTodos();
+        List<ListarClienteViewModel> ListarTodos();
         List<Cliente> BuscarClientePorNome(string nome);
         List<Cliente> BuscarClienteNomeParcial(string nome);
         List<Cliente> ListarTodosOrdenados();
