@@ -1,7 +1,10 @@
-﻿using API_ECommerce.Context;
+﻿using System.Text.Json.Serialization;
+using API_ECommerce.Context;
 using API_ECommerce.DTO.Pedido;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_ECommerce.Repositories
 {
@@ -65,7 +68,13 @@ namespace API_ECommerce.Repositories
 
         public List<Pedido> ListarTodos()
         {
-            throw new NotImplementedException();
+            //Para listar os pedidos com a lista de itens pedidos, precisamos usar o .incluse para fazer o join da tabela itens pedido
+            return _context.Pedidos
+                .Include(p => p.ItemPedidos) // quando incuir os itens do pedidos, precisa usar o ThenInclude, desta forma vai incluir os produtos relacionados ao itens produtos
+                .ThenInclude(p => p.IdProdutoNavigation)
+                .ToList();
+                 
         }
+
     }
 }
