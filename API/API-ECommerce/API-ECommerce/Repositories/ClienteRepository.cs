@@ -4,6 +4,8 @@ using API_ECommerce.Models;
 using System.Linq;
 using API_ECommerce.DTO.Cliente;
 using API_ECommerce.ViewModels;
+using API_ECommerce.Services;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 
 namespace API_ECommerce.Repositories
 {
@@ -89,6 +91,8 @@ namespace API_ECommerce.Repositories
         //Implementar a interface( os metodos)
         public void Cadastrar(CadastrarClienteDTO cliente)
         {
+            var passwordService = new PasswordService();
+
             Cliente clienteCadastro = new Cliente
             {
                 NomeCompleto = cliente.NomeCompleto,
@@ -98,6 +102,9 @@ namespace API_ECommerce.Repositories
                 Senha = cliente.Senha,
                 DataCadastro = cliente.DataCadastro,
             };
+
+            clienteCadastro.Senha = passwordService.HashPassword(clienteCadastro);
+
 
             _context.Clientes.Add(clienteCadastro); // o context acessa a tabela cliente para poder adicionar/cadastrar
             _context.SaveChanges();

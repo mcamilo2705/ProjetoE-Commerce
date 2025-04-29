@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using API_ECommerce.Models;
 using API_ECommerce.DTO.Cliente;
+using Microsoft.VisualBasic;
+using API_ECommerce.Services;
 
 namespace API_ECommerce.Controllers
 {
