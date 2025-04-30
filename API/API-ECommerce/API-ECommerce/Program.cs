@@ -1,6 +1,8 @@
+using System.Text;
 using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Repositories;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args); //nuca mexer nesta linha, ela deve ficar sempre no comeco da program.cs
 
@@ -21,8 +23,24 @@ builder.Services.AddTransient<IPagamentoRepository, PagamentoRepository>();
 builder.Services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
 builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 
+//Adicionando a autenticacao
+builder.Services.AddAuthentication("Bearer") //informar o tipo de autenticacao
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,// Primeira validacao, verificar o Issue que foi passado do token
+            ValidateAudience = true,//Valida a audiencia
+            ValidateLifetime = true,//valida o tem de vida do token
+            ValidateIssuerSigningKey = true, 
+            ValidIssuer = "ecommerce", //
+            ValidAudience = "ecommerce",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("minha-chave-ultra-mega-secreta-senai"))
+        }; //Parametros de validacao de token, ou seja, como ele valida o token
+    }); // Esse metodo so existe se baixar o pacote JwtBearer no projeto
 
-
+//Adicionando autorizacao
+builder.Services.AddAuthorization();
 
 var app = builder.Build(); // essa linhas constroi a aplicacao, nunca remover ou mexer nela
 //App para usar o swagger
@@ -31,5 +49,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.MapControllers();
+
+app.UseAuthentication(); //informando para executar a autenticacao
+app.UseAuthorization(); //informando para executar a autorizacao
 
 app.Run(); //essa sempre deve ser a ultima linha do program.cs

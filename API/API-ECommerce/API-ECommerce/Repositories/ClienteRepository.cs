@@ -72,15 +72,27 @@ namespace API_ECommerce.Repositories
         public Cliente? BuscarPorEmailSenha(string email, string senha) // ao colocar interrogacao indica que pode retornar nulo.
         {
             //Encontrar o cliente que possue o email e senha fornecidos
-            var clienteEncontrado = _context.Clientes.FirstOrDefault(cli => cli.Email == email && cli.Senha == senha);
-            
+            var clienteEncontrado = _context.Clientes.FirstOrDefault(cli => cli.Email == email); //primeira etapa, procurar o cliente pelo email
+
+            //caso nao encontro o email retorn null
             if (clienteEncontrado == null)
             {
-                throw new ArgumentNullException("Cliente nao encontrado");
+                return null;
+                //throw new ArgumentNullException("Cliente nao encontrado");
             }
             
-            return clienteEncontrado;
-            
+            //Verificar se o hash da senha bate
+            var passwordService = new PasswordService();//instanciando a classe PasswordService
+
+            //verificar se a senha do usuario gera o mesmo hash
+            var resultado = passwordService.VerficarSenha(clienteEncontrado, senha);
+
+            if (resultado == true) 
+            {
+                return clienteEncontrado; //se o resultado for verdadeiro retorn o cliente encontrado
+            }
+
+            return null;
         }
         //Implementar a interface( os metodos)
         public Cliente BuscarPorId(int id)

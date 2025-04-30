@@ -8,6 +8,8 @@ using API_ECommerce.Models;
 using API_ECommerce.DTO.Cliente;
 using Microsoft.VisualBasic;
 using API_ECommerce.Services;
+using System.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_ECommerce.Controllers
 {
@@ -25,6 +27,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpGet]
+        [Authorize] // so sera possivel listar todos os cliente, caso o usuario tenha gerado o token
         public IActionResult ListarTodos()
         {
             return Ok(_clienteRepository.ListarTodos());
@@ -110,17 +113,22 @@ namespace API_ECommerce.Controllers
 
 
         // exemplo: /api/cliente/marcos@gmail.com/12345
-        [HttpGet("{email}/{senha}")]
-        public IActionResult Login(string email, string senha)
+        [HttpPost("login")]
+        public IActionResult Login(LoginDTO loginDTO)
         {;
-            var cli = _clienteRepository.BuscarPorEmailSenha(email, senha);
+            var cli = _clienteRepository.BuscarPorEmailSenha(loginDTO.Email, loginDTO.Senha);
             if (cli == null)
             {
-                return NotFound();
+
+                return Unauthorized("Email ou Senha invalidos");
             }
             else
             {
-                return Ok(cli);
+                //criar o token
+                var tokenService = new TokenServices();
+
+                var token = tokenService.GenereteToken(cli.Email);
+                return Ok(token);
             }
         }
     }

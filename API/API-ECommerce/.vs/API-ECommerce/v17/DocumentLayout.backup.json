@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\interfaces\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\interfaces\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\services\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\services\\tokenservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\dto\\cliente\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\dto\\cliente\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01AC4885-2DCB-4270-ADA6-41BF1E7740F1}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\documents\\projetoe-commerce\\api\\api-ecommerce\\api-ecommerce\\services\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,19 +34,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteRepository.cs",
-              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Repositories\\ClienteRepository.cs",
-              "RelativeDocumentMoniker": "API-ECommerce\\Repositories\\ClienteRepository.cs",
-              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Repositories\\ClienteRepository.cs",
-              "RelativeToolTip": "API-ECommerce\\Repositories\\ClienteRepository.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAgwH4AAAA3AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\DTO\\Cliente\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\DTO\\Cliente\\LoginDTO.cs",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\DTO\\Cliente\\LoginDTO.cs",
+              "RelativeToolTip": "API-ECommerce\\DTO\\Cliente\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T23:25:45.728Z",
+              "WhenOpened": "2025-04-29T23:16:45.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Program.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\Program.cs",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Program.cs",
+              "RelativeToolTip": "API-ECommerce\\Program.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACUAAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T22:44:58.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TokenServices.cs",
+              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Services\\TokenServices.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\Services\\TokenServices.cs",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Services\\TokenServices.cs",
+              "RelativeToolTip": "API-ECommerce\\Services\\TokenServices.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwBUAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T00:39:01.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Interfaces\\IClienteRepository.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\Interfaces\\IClienteRepository.cs",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Interfaces\\IClienteRepository.cs",
+              "RelativeToolTip": "API-ECommerce\\Interfaces\\IClienteRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T00:24:20.549Z",
               "EditorCaption": ""
             },
             {
@@ -43,16 +94,16 @@
               "Title": "ClienteController.cs",
               "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Controllers\\ClienteController.cs",
-              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
-              "RelativeToolTip": "API-ECommerce\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs*",
+              "RelativeToolTip": "API-ECommerce\\Controllers\\ClienteController.cs*",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwB0AAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T23:01:54.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PasswordService.cs",
               "DocumentMoniker": "C:\\Users\\FIC\\Documents\\ProjetoE-Commerce\\API\\API-ECommerce\\API-ECommerce\\Services\\PasswordService.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Services\\PasswordService.cs",

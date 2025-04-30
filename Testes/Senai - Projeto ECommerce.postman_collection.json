@@ -8,6 +8,41 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maria@gmail.com\",\r\n    \"senha\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7008/api/cliente/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Produto",
 			"item": [
 				{
@@ -139,6 +174,46 @@
 				{
 					"name": "Consultar Todos os Clientes",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtYXJpYUBnbWFpbC5jb20iLCJleHAiOjE3NDU5NzQ4MzMsImlzcyI6ImVjb21tZXJjZSIsImF1ZCI6ImVjb21tZXJjZSJ9.V8jCB_N7Jhh2McVFcqg1cUdKUUqeO0Pr8MH5GTptRyU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Todos os Clientes via token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJtYXJpYUBnbWFpbC5jb20iLCJleHAiOjE3NDU5NzQwNjgsImlzcyI6ImVjb21tZXJjZSIsImF1ZCI6ImVjb21tZXJjZSJ9.Z1HFJUy3KWIM3LTWgdGBBVl97MPJN4OLnczFvHaZx8Q",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -184,7 +259,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nomeCompleto\": \"Joao Costa\",\r\n    \"email\": \"jc@gmail.com\",\r\n    \"telefone\": \"011987944577\",\r\n    \"endereco\": \"Rua jose, 303 - Sao Paulo/SP\",\r\n    \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"raw": "{\r\n    \"nomeCompleto\": \"Igor\",\r\n    \"email\": \"igor@gmail.com\",\r\n    \"telefone\": \"011987744547\",\r\n    \"endereco\": \"Rua jose, 147 - Sao Paulo/SP\",\r\n    \"senha\" : \"123\",\r\n    \"dataCadastro\": \"2025-04-28\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,6 +327,31 @@
 								"api",
 								"cliente",
 								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Consultar Todos os Pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7008/api/pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7008",
+							"path": [
+								"api",
+								"pedido"
 							]
 						}
 					},
